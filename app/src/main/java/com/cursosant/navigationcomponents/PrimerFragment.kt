@@ -5,11 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.commit
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.cursosant.navigationcomponents.databinding.FragmentPrimerBinding
-
 
 class PrimerFragment : Fragment(R.layout.fragment_primer) {
 
