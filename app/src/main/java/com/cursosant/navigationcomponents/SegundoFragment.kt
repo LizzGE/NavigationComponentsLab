@@ -53,13 +53,5 @@ class SegundoFragment : Fragment(R.layout.fragment_segundo) {
         }
 
         text.text = "$nombre, $edad"
-
     }
-
-    companion object {
-        private const val MI_NOMBRE = "nombre"
-        private const val MI_EDAD = "edad"
-
-    }
-
 }
