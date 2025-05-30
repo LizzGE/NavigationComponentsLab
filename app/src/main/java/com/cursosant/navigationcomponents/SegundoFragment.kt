@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.cursosant.navigationcomponents.databinding.FragmentSegundoBinding
+import androidx.core.net.toUri
 
 
 class SegundoFragment : Fragment(R.layout.fragment_segundo) {
@@ -46,6 +48,8 @@ class SegundoFragment : Fragment(R.layout.fragment_segundo) {
         button.setOnClickListener {
             val result = "Resultado"
             setFragmentResult("requestKey", bundleOf("bundlekKey" to result))
+            findNavController().navigate("navigation://card".toUri()) // Navegamos al destino usando un deep link interno (URI) definido en el nav_graph
+
         }
 
         text.text = "$nombre, $edad"
@@ -56,9 +60,6 @@ class SegundoFragment : Fragment(R.layout.fragment_segundo) {
         private const val MI_NOMBRE = "nombre"
         private const val MI_EDAD = "edad"
 
-        fun newInstance(nombre : String, edad : Int) = SegundoFragment().apply {
-            arguments = bundleOf(MI_NOMBRE to nombre, MI_EDAD to edad)
-        }
     }
 
 }
