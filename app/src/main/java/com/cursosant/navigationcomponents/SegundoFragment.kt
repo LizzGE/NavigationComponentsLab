@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.navArgs
 import com.cursosant.navigationcomponents.databinding.FragmentSegundoBinding
 
 
@@ -15,6 +16,10 @@ class SegundoFragment : Fragment(R.layout.fragment_segundo) {
     private lateinit var binding: FragmentSegundoBinding
     private var nombre : String? = ""
     private var edad : Int? = 0
+
+    /*'navArgs' es para obtener los argumentos enviados desde el fragmento anterior,
+     esto me permite acceder facilmente a 'nombre' y 'edad' sin usar Bundle manualmente*/
+    private val args: SegundoFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,11 +32,9 @@ class SegundoFragment : Fragment(R.layout.fragment_segundo) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        arguments?.let {bundle ->
-            nombre = bundle.getString(MI_NOMBRE)
-            edad = bundle.getInt(MI_EDAD)
-        }
+    //Asignamos los argumentos recibidos a variables locales para usarlos en el fragmento
+        nombre = args.nombre
+        edad = args.edad
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

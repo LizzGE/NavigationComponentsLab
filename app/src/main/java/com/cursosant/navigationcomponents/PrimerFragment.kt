@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.cursosant.navigationcomponents.databinding.FragmentPrimerBinding
@@ -34,8 +33,9 @@ class PrimerFragment : Fragment(R.layout.fragment_primer) {
             resultado.text = result
         }
 
-        button.setOnClickListener {//bundleOf -> Este metodo permite enviar datos simples entre fragments (sin Safe Args por ahora)
-            findNavController().navigate(R.id.action_primerFragment_to_segundoFragment, bundleOf("nombre" to "Liz", "edad" to 22))
+        button.setOnClickListener {// Navega al SegundoFragment pasando nombre y edad con SafeArgs
+            val action = PrimerFragmentDirections.actionPrimerFragmentToSegundoFragment("Liz", 22)
+            findNavController().navigate(action)
         }
     }
 }

@@ -22,5 +22,15 @@
         android:id="@+id/segundoFragment"
         android:name="com.cursosant.navigationcomponents.SegundoFragment"
         android:label="fragment_segundo"
-        tools:layout="@layout/fragment_segundo" />
+        tools:layout="@layout/fragment_segundo" >
+        <argument
+            android:name="nombre"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="NO_NAME" />
+        <argument
+            android:name="edad"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>
